@@ -1,35 +1,34 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-main-page',
+  templateUrl: './main-page.component.html',
+  styleUrls: ['./main-page.component.scss']
 })
-export class AppComponent {
-  public pageTitle = '';
-  public loadingRoute = false;
-
+export class MainPageComponent {
+  public selectedMenuItem = '';
   constructor(
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
-    private _titleService: Title) {
+  ) {
     this._router.events.subscribe(
       (event: Event) => {
-        this.loadingRoute = true;
         if (event instanceof NavigationEnd) {
-          this.loadingRoute = false;
           let currentRoute = this._activatedRoute.root;
           while (currentRoute.children[0] !== undefined) {
             currentRoute = currentRoute.children[0];
           }
           const data = currentRoute.snapshot.data;
-          this.pageTitle = JSON.parse(JSON.stringify(data)).title;
-          this._titleService.setTitle(this.pageTitle);
+          this.selectedMenuItem = JSON.parse(JSON.stringify(data)).menuItem;
         }
       });
   }
+
+  public isMenuItemSelected(menuItemName: string): boolean {
+    if (this.selectedMenuItem && this.selectedMenuItem.includes(menuItemName)) {
+      return true;
+    }
+    return false;
+  }
 }
-
-

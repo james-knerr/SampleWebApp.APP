@@ -1,0 +1,59 @@
+<div fxLayout fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="space-around center" style="height: 100%; padding-bottom: 72px;">
+  <div fxFill fxFlex="100" style="max-width: 700px;">
+    <mat-card fxLayout fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center stretch" style="height: 100%; overflow-y: auto; margin: 8px; overflow-x: hidden;">
+      <mat-card-content fxLayout="column" fxLayoutAlign="center stretch" style="position: relative; height: 100%;">
+        <app-component-spinner [busy]="isBusy"></app-component-spinner>
+        <div fxHide [fxShow.gt-sm]="true" style="border-bottom: #7e57c2 2px solid;" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center"
+          fxAlign="start">
+          <span style="margin: 10px; color: rgba(0,0,0,0.57);" [ngStyle.xs]="{'font-size.px': 28}" [ngStyle.gt-xs]="{'font-size.px': 34}">Welcome to the Sample Web App!</span>
+          <span style="margin: 10px; color: rgba(0,0,0,0.57);" [ngStyle.xs]="{'font-size.px': 16}" [ngStyle.gt-xs]="{'font-size.px': 18}">{{currentDate | date:'fullDate'}}</span>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start stretch" fxAlign="center" style="height: 100%;">
+        <mat-toolbar class="profile">
+          <span>
+            <div class="toolbar-header-icon-container">
+              <mat-icon class="toolbar-header-icon" fontSet="mdi" fontIcon="mdi-format-list-bulleted"></mat-icon>
+            </div>
+          </span>
+          <span>Samples
+            <button mat-icon-button matTooltip="Refresh Samples" [matTooltipPosition]="'after'" (click)="refresh($event)">
+              <mat-icon style="color: lightgray; vertical-align: baseline; line-height: 40px;" class="mdi-18px mdi-rotate-45 mdi-bold"
+                fontSet="mdi" fontIcon="mdi-autorenew"></mat-icon>
+            </button>
+          </span>
+          <span fxFlex></span>
+          <span>
+            <button [style.display]="isNewSampleVisible ? 'none' : 'inline-block'" [matTooltipPosition]="'before'" mat-mini-fab color="accent" (click)="newSample($event)" matTooltip="Add New Sample">
+              <mat-icon class="mdi-24px" fontSet="mdi" fontIcon="mdi-plus"></mat-icon>
+            </button>
+            <mat-form-field [style.display]="isNewSampleVisible ? 'inline-block' : 'none'" color="accent" style="font-size: 16px; max-height: 20%; flex-basis: 25%; flex-shrink: 1;">
+              <mat-label style="font-size: 16px;">Sample Text</mat-label>
+              <input matInput style="font-size: 16px;" [(ngModel)]="newSampleText" [disabled]="isBusy">
+            </mat-form-field>
+            <button [style.display]="isNewSampleVisible ? 'inline-block' : 'none'" (click)="resetNewSample()" mat-icon-button id="resetSampleBtn">
+              <mat-icon class="mdi-24px warn" fontSet="mdi" fontIcon="mdi-close-circle"></mat-icon>
+            </button>
+            <button [style.display]="isNewSampleVisible ? 'inline-block' : 'none'" (click)="saveNewSample()" mat-icon-button id="saveSampleBtn">
+              <mat-icon class="mdi-24px success" fontSet="mdi" fontIcon="mdi-check-circle"></mat-icon>
+            </button>
+          </span>
+        </mat-toolbar>
+        <table>
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Sample Text</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let sample of samples">
+                  <td>{{sample.id}}</td>
+                  <td>{{sample.sampleText}}</td>
+              </tr>
+          </tbody>
+      </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

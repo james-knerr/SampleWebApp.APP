@@ -1,0 +1,79 @@
+.router-spinner-container{
+    position:absolute;
+    height:100%;
+    width:100%;
+    left:0px;
+    top:0px;
+    background-color:rgba(255, 255, 255, 0.85);
+    transition: visibility 0.3s, opacity .2s ease-in-out;
+    transition-delay: 0s, 0s;
+    z-index:10000;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.router-spinner-container.no-show{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in;
+}
+.router-spinner-container.show{
+    opacity: 1;
+    visibility: visible;
+}
+.router-child-spinner-container{
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+.router-child-spinner{
+    height: 40px;
+    width: 40px;
+    position: relative;
+    -webkit-animation: child-rotation .8s infinite linear;
+    -moz-animation: child-rotation .8s infinite linear;
+    -o-animation: child-rotation .8s infinite linear;
+    animation: child-rotation .8s infinite linear;
+    border-left: 3px solid rgba(126, 87, 194,.15);
+    border-right: 3px solid rgba(126, 87, 194,.15);
+    border-bottom: 3px solid rgba(126, 87, 194,.15);
+    border-top: 3px solid rgba(126, 87, 194,.8);
+    border-radius: 100%;
+}
+@-webkit-keyframes child-rotation { 
+	from {
+	    -webkit-transform: rotate(0deg)
+	}
+	to {
+	    -webkit-transform: rotate(359deg)
+	}
+}
+@-moz-keyframes child-rotation { 
+	from {
+	    -moz-transform: rotate(0deg)
+	}
+	to {
+	    -moz-transform: rotate(359deg)
+	}
+}
+@-o-keyframes child-rotation { 
+	from {
+	    -o-transform: rotate(0deg)
+	}
+	to {
+	    -o-transform: rotate(359deg)
+	}
+}
+@keyframes child-rotation { 
+	from {
+	    transform: rotate(0deg)
+	}
+	to {
+	    transform: rotate(359deg)
+	}
+}

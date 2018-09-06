@@ -1,0 +1,9 @@
+<mat-toolbar class="nav-toolbar" color="primary">
+    <button mat-button class="nav-bar-button nav-bar-main-button" [class.selected]="isMenuItemSelected('Dashboard')" [routerLink]="['/dashboard']"
+        routerLinkActive="active">
+        <mat-icon style="vertical-align: middle;" class="mdi-18px" fontSet="mdi" fontIcon="mdi-view-dashboard"></mat-icon>
+        <span style="padding-left: 5px; vertical-align: middle;">
+            Dashboard</span>
+    </button>
+</mat-toolbar>
+<router-outlet></router-outlet>

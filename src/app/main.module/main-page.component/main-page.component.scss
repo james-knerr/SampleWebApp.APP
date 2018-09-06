@@ -1,0 +1,76 @@
+@import '../main.styles.scss';
+app-main-page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+a:focus {
+    outline: none;
+}
+a:focus, a:hover {
+    color: rgba(0, 0, 0, 0.870588);
+    text-decoration: none;
+}
+
+app-main-page > app-main-dashboard {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  position: relative;
+  z-index: 10;
+}
+img.profile-image {
+    height:45px;
+    width:auto;
+    cursor:pointer;
+}
+
+[mat-menu-item] {
+  overflow-y: hidden;
+}
+.nav-bar-button {
+  margin-left: 16px;
+  color: white;
+}
+.nav-bar-button.selected {
+  margin-left: 16px;
+  background-color: #b39ddb;
+  color: white;
+}
+.mat-button-img img {
+  filter: grayscale(100%) brightness(200%);
+  -webkit-filter: grayscale(100%) brightness(200%);
+}
+.mat-button-img.selected {
+  background-color: #b39ddb;
+}
+.text-no-wrap {
+  white-space: nowrap !important;
+  margin: 0 !important;
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+   .nav-bar-main-button {
+  display: none;
+}
+.nav-bar-icon-button {
+  display: block;
+}
+  /* show it on small screens */
+}
+
+@media screen and (min-width: 601px) {
+  .nav-bar-main-button {
+  display: block;
+}
+.nav-bar-icon-button {
+  display: none;
+}
+  /* hide it elsewhere */
+}

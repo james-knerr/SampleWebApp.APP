@@ -1,0 +1,8 @@
+<div class="component-spinner-container" [class.no-show]="!busy" [class.show]="busy">
+	<div class="component-child-spinner-container" [style.display]="busy ? 'flex' : 'none'">
+		<div style="position:relative">
+			<div class="component-child-spinner" [class.small]="small"></div>
+		</div>
+		<span>{{busyMessage ? busyMessage : ''}}</span>
+	</div>
+</div>
