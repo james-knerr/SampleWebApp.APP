@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router, Scroll, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -18,7 +18,7 @@ export class AppComponent {
     this._router.events.subscribe(
       (event: Event) => {
         this.loadingRoute = true;
-        if (event instanceof NavigationEnd) {
+        if (event instanceof NavigationEnd || (event as Scroll).routerEvent instanceof NavigationEnd) {
           this.loadingRoute = false;
           let currentRoute = this._activatedRoute.root;
           while (currentRoute.children[0] !== undefined) {
