@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, Scroll, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import {AppInsights} from 'applicationinsights-js';
+
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +18,9 @@ export class AppComponent {
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
     private _titleService: Title) {
+      if (!AppInsights.config) {
+        AppInsights.downloadAndSetup({ instrumentationKey: environment.appInsightsKey });
+      }
     this._router.events.subscribe(
       (event: Event) => {
         this.loadingRoute = true;
