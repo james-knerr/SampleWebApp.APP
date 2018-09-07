@@ -19,7 +19,8 @@ export class AppComponent {
     private _activatedRoute: ActivatedRoute,
     private _titleService: Title) {
       if (!AppInsights.config) {
-        AppInsights.downloadAndSetup({ instrumentationKey: environment.appInsightsKey });
+        AppInsights.downloadAndSetup({ instrumentationKey: environment.appInsightsKey,
+        enableCorsCorrelation: true });
       }
     this._router.events.subscribe(
       (event: Event) => {

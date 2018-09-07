@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AppInsights} from 'applicationinsights-js';
+
 import { MainService } from '../main.service';
 import { SnackBarService } from '../../core.module/services/snackbar.service';
 import { SampleVM } from '../../shared.module/models/sample-vm';
@@ -18,6 +20,7 @@ export class MainDashboardComponent implements OnInit {
   constructor(private _mainService: MainService,
               private _snackbarService: SnackBarService
             ) {
+              AppInsights.trackPageView('Dashboard', window.location.href);
 
   }
 
