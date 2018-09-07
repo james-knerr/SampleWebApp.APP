@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --configuration=production",
+    "start": "ng serve --configuration=local",
+    "start-prod": "ng serve --configuration=production",
+    "build": "ng build --configuration=local",
+    "build-prod": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "npm rebuild node-sass --force && npm run build"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -39,7 +41,7 @@
     "@angular/language-service": "6.1.7",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "8.9.4",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
