@@ -48,12 +48,15 @@ export class MainService {
     }
     }
     public addSample(sample: SampleVM): Observable<SampleVM> {
+        this.appInsightsEventID = Utilities.NewGuid();
+        AppInsights.trackEvent('Start', { Source: 'APP', Method: 'AddSample()', ID: this.appInsightsEventID});
         return this._httpClient.post<SampleVM>(`${this.apiUrl}`, sample)
         .pipe(map((resp: SampleVM) => {
             const cacheKey = cacheKeys.samples;
             const cacheValue = <SampleVM[]>this._cacheService.get(cacheKey);
             cacheValue.push(resp);
             this._cacheService.set(cacheKey, cacheValue, { maxAge: this._configService.maxAge });
+            AppInsights.trackEvent('End', { Source: 'APP', Method: 'AddSample()', ID: this.appInsightsEventID});
             return resp;
         }));
     }
