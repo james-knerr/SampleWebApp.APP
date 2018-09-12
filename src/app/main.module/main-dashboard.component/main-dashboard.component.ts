@@ -20,7 +20,7 @@ export class MainDashboardComponent implements OnInit {
   constructor(private _mainService: MainService,
               private _snackbarService: SnackBarService
             ) {
-              AppInsights.trackPageView('Dashboard', window.location.href);
+              // AppInsights.trackPageView('Dashboard', window.location.href);
 
   }
 

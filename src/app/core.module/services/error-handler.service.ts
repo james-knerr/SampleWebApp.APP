@@ -17,7 +17,7 @@ export class ErrorHandlerService {
           console.log(`${operation} failed: ${error.message}`);
 
           if (appInsightsID) {
-            AppInsights.trackEvent('APP - GetSamples() - Exception', { ID: appInsightsID});
+            AppInsights.trackEvent('Exception', { Source: 'APP', Method: 'GetSamples()', ID: appInsightsID});
           }
           // Let the app keep running by returning an empty result.
           return of(result as T);

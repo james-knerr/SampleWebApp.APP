@@ -37,11 +37,11 @@ export class MainService {
         if (this._cacheService.exists(cacheKey) && !forceRefresh) {
              return of(this._cacheService.get(cacheKey));
          } else {
-            AppInsights.trackEvent('APP - GetSamples() - Start', { ID: this.appInsightsEventID});
+            AppInsights.trackEvent('Start', { Source: 'APP', Method: 'GetSamples()', ID: this.appInsightsEventID});
         return this._httpClient.get<SampleVM[]>(`${this.apiUrl}`)
         .pipe(map((resp: SampleVM[]) => {
             this._cacheService.set(cacheKey, resp, { maxAge: this._configService.maxAge });
-            AppInsights.trackEvent('APP - GetSamples() - End', { ID: this.appInsightsEventID});
+            AppInsights.trackEvent('End', { Source: 'APP', Method: 'GetSamples()', ID: this.appInsightsEventID});
             return resp;
         }),
         catchError(this._errorService.handleError('getSamples', this.appInsightsEventID, [])));
