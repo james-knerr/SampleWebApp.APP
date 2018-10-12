@@ -5,5 +5,9 @@
         <span style="padding-left: 5px; vertical-align: middle;">
             Dashboard</span>
     </button>
+    <button matTooltip="Dashboard" class="nav-bar-button nav-bar-icon-button" [class.selected]="isMenuItemSelected('Dashboard')" [routerLink]="['/dashboard']"
+    mat-icon-button routerLinkActive="active">
+    <mat-icon style="vertical-align: middle;" class="mdi-18px" fontSet="mdi" fontIcon="mdi-view-dashboard"></mat-icon>
+  </button>
 </mat-toolbar>
 <router-outlet></router-outlet>

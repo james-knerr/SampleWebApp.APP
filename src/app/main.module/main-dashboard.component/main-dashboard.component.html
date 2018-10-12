@@ -3,7 +3,7 @@
     <mat-card fxLayout fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center stretch" style="height: 100%; overflow-y: auto; margin: 8px; overflow-x: hidden;">
       <mat-card-content fxLayout="column" fxLayoutAlign="center stretch" style="position: relative; height: 100%;">
         <app-component-spinner [busy]="isBusy"></app-component-spinner>
-        <div fxHide [fxShow.gt-sm]="true" style="border-bottom: #7e57c2 2px solid;" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center"
+        <div style="border-bottom: #7e57c2 2px solid;" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center"
           fxAlign="start">
           <span style="margin: 10px; color: rgba(0,0,0,0.57);" [ngStyle.xs]="{'font-size.px': 28}" [ngStyle.gt-xs]="{'font-size.px': 34}">Welcome to the Sample Web App!</span>
           <span style="margin: 10px; color: rgba(0,0,0,0.57);" [ngStyle.xs]="{'font-size.px': 16}" [ngStyle.gt-xs]="{'font-size.px': 18}">{{currentDate | date:'fullDate'}}</span>
