@@ -43,10 +43,10 @@
     -moz-animation: child-rotation .8s infinite linear;
     -o-animation: child-rotation .8s infinite linear;
     animation: child-rotation .8s infinite linear;
-    border-left: 3px solid rgba(106,186,222,.15);
-    border-right: 3px solid rgba(106,186,222,.15);
-    border-bottom: 3px solid rgba(106,186,222,.15);
-    border-top: 3px solid rgb(106, 187, 222);
+    border-left: 3px solid rgba(126, 87, 194,.15);
+    border-right: 3px solid rgba(126, 87, 194,.15);
+    border-bottom: 3px solid rgba(126, 87, 194,.15);
+    border-top: 3px solid rgba(126, 87, 194,.8);
     border-radius: 100%;
 }
 .component-child-spinner.small{
@@ -57,10 +57,10 @@
     -moz-animation: child-rotation .8s infinite linear;
     -o-animation: child-rotation .8s infinite linear;
     animation: child-rotation .8s infinite linear;
-    border-left: 3px solid rgba(106,186,222,.15);
-    border-right: 3px solid rgba(106,186,222,.15);
-    border-bottom: 3px solid rgba(106,186,222,.15);
-    border-top: 3px solid rgba(106,186,222,.8);
+    border-left: 3px solid rgba(126, 87, 194,.15);
+    border-right: 3px solid rgba(126, 87, 194,.15);
+    border-bottom: 3px solid rgba(126, 87, 194,.15);
+    border-top: 3px solid rgba(126, 87, 194,.8);
     border-radius: 100%;
 }
 @-webkit-keyframes child-rotation { 
